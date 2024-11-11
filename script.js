@@ -1,6 +1,7 @@
 const $ = (e, p = document) => p.querySelector(e);
 const $$ = (e, p = document) => p.querySelectorAll(e);
 
+const container = $('.animate-container');
 const animate = $('.animate');
 const row = 13;
 const col = 10;
@@ -32,6 +33,12 @@ const tick = gsap.ticker.add(() => {
          crrFrame = Math.min(crrFrame, 1/dff - 1);
          x(-pos[crrFrame][0] * 100);
          y(-pos[crrFrame][1] * 120);
+      });
+
+
+      const toggle = { value: true };
+      gui.add(toggle, 'value').onChange((v) => {
+         gsap.set(container, { overflow: v ? 'hidden' : 'visible' });
       });
    }
 });
