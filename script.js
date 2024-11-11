@@ -38,7 +38,10 @@ const tick = gsap.ticker.add(() => {
 
       const toggle = { value: true };
       gui.add(toggle, 'value').onChange((v) => {
-         gsap.set(container, { overflow: v ? 'hidden' : 'visible' });
+         gsap.set(container, { 
+            overflow: v ? 'hidden' : 'visible',
+            backgroundColor: v ? 'transparent' : '#19284c'
+         });
       });
    }
 });
